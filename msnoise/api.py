@@ -176,6 +176,7 @@ def read_db_inifile(inifile=None):
         tech, hostname, database, username, password, prefix = cPickle.load(f)
     except:
         # Old ini file without prefix
+        f.seek(0)
         tech, hostname, database, username, password = cPickle.load(f)
         prefix = ""
     f.close()
